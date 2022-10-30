@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Lorem ipsum dolor sit.</h1>
+	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid placeat aliquam autem ad pariatur quidem voluptatem quisquam fugit dolorem! Rem vero nesciunt sunt ad fugiat, id voluptates magnam fugit voluptatem, cupiditate commodi. Provident perferendis obcaecati assumenda maxime tenetur perspiciatis exercitationem, voluptas, itaque suscipit cumque magni id? Veritatis, odio, minus placeat, consequatur ad recusandae similique tenetur vero aperiam unde quaerat? Dolorum, aliquam. Magni minus placeat eaque recusandae autem amet, illo optio iure. Doloremque nostrum accusantium, rerum eos porro id ipsam inventore quibusdam dolore explicabo nemo natus, error ab itaque quam quo cumque maxime ut assumenda beatae molestiae omnis? Voluptatem, amet accusamus.</p>
+
+	<script>
+		const nadpis = document.querySelector("h1");
+		const odstavec = document.querySelector("p");
+
+		nadpis.innerText = "Změněný <b>nadpis</b>"; // v tomto nemusíme používat escape sekvenci pro zaschování speciálních znaků, změní to čistě text na text
+		odstavec.innerHTML = "<h2>Změněný <i>odstavec zde na tučné</i></h2>"; //v tomto případě to vezme v potaz i HTML sekvence a změní je to
+	</script>
+</body>
+</html>

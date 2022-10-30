@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const pocetObyvatelPodleMesta = { //toto je jakoby pole s textovými klíči
+			"Praha" : 1000000,
+			"Plzeň" : 120000,
+		}
+
+		const pocetLidiVPraze = pocetObyvatelPodleMesta["Praha"];
+		console.log(pocetLidiVPraze);
+
+		const pocetLidiVPrazeV2 = pocetObyvatelPodleMesta.Praha; //JS specialitka, kdy to můžeme zapsat i takto, kdy za tečku se uvádí klíč v poli (přístup přes tečku)
+		console.log(pocetObyvatelPodleMesta.Praha);//zápis s tečkou jde pouze pokud je název bez mezer
+
+		//přidání položky
+		pocetObyvatelPodleMesta["Brno"] = 500000; 
+		pocetObyvatelPodleMesta.Brno = 500000;  //totožný zápis jako o řádku výše a tedy přepíše hodnotu na místě Brno a nebudou v poli dvě Brna
+
+		console.log(pocetObyvatelPodleMesta);
+
+		//odstranění položky
+		delete pocetObyvatelPodleMesta["Brno"];
+		console.log(pocetObyvatelPodleMesta);
+
+		//procházení struktury - pomocí for/in
+		for(const mesto in pocetObyvatelPodleMesta){ //na procházení se používá for in
+			const pocetObyvatel = pocetObyvatelPodleMesta[mesto];
+			console.log(`Počet obyvatel v ${mesto} je ${pocetObyvatel}`);
+		}
+
+
+		//procházení struktury pomocí for/of s využitím struktury Object.entries
+		for(const[mesto, pocetObyvatel] of Object.entries(pocetObyvatelPodleMesta)){
+			console.log(`Počet obyvatel v ${mesto} je ${pocetObyvatel}`);
+		}
+	</script>
+</body>
+</html>

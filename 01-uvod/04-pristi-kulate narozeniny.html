@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const mujVek = prompt(`Zadejte svůj věk: `);
+
+		zbyva = 10 - (mujVek % 10);
+
+		if(zbyva >= 2 && zbyva <= 4) 
+		{
+			alert(`do příštích kulatých narozenin ti zbývájí ${zbyva} roky`);
+		} 
+		else if (zbyva == 1) 
+		{
+			alert(`do příštích kulatých narozenin ti zbývá ${zbyva} rok`);
+		} 
+		else
+		{
+			alert(`do příštích kulatých narozenin ti zbývá ${zbyva} let`);
+		}
+		
+	</script>
+</body>
+</html>

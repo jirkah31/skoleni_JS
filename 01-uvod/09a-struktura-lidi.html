@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		const lidi = [ //toto je pole struktur
+			{jmeno : "Petr", pohlavi : "muž"},
+			{jmeno : "Nikola", pohlavi : "žena"},
+			{jmeno : "Ivan", pohlavi : "muž"},
+			{jmeno : "Franta", pohlavi : "muž"},
+			{jmeno : "Lucka", pohlavi : "žena"},
+		];
+		console.log(lidi);
+
+		const holky = [];
+
+		for(const clovek of lidi){
+			if(clovek.pohlavi == "žena")
+			{
+				holky.push(clovek.jmeno)
+			}
+		}
+
+		console.log(holky);
+
+			
+		for([jmeno, pohlavi] of Object.entries(lidi)){ //projdu strukturu lidi
+			if(pohlavi == "žena") { //podmínka mi vybere jen pohlavi žena
+				console.log(jmeno);
+			}
+		}
+	
+	</script>
+</body>
+
+</html>

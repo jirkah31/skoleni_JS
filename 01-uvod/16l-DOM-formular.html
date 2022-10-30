@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<div>
+			Jméno: <input type="text" name="jmeno" id="">
+		</div>
+
+		<div>
+			Pohlaví: 
+			<select name="pohlavi" id="">
+				<option value="">Vyberte</option>
+				<option value="muz">Muž</option>
+				<option value="zena">Žena</option>
+			</select>
+		</div>
+
+		<div>
+			Souhlasím s Lorem ipsum dolor sit amet.
+			<input type="checkbox" name="souhlasim" id="">
+		</div>
+
+		<div>
+			<button name="odeslat">Odeslat</button>
+		</div>
+	</form>
+
+	<script>
+		const formular = document.querySelector('form');
+		const jmeno = document.querySelector('[name="jmeno"]'); //vytažení jména z formu pomocí atributu name, když nezadáme ID se dělá takto
+		const pohlavi = document.querySelector('[name="pohlavi"]');
+		const souhlasim = document.querySelector('[name="souhlasim"]');
+		formular.addEventListener("submit", (udalost) => {
+			//alert("Odeslano");
+
+
+			//zjistime hodnotu jmena
+			const jmenoVyplneno = jmeno.value; // to co je vyplněno zjistím pomocí value
+			console.log (jmenoVyplneno);
+
+			//zjistit pohlavi
+			const pohlaviVyplneno = pohlavi.value;
+			console.log (pohlaviVyplneno);
+
+			//zjistíme checkbox zašktnutý nebo ne
+			const souhlasimVyplneno = souhlasim.checked;
+			console.log (souhlasimVyplneno);
+
+			if(jmenoVyplneno.length > 0 && pohlaviVyplneno.length > 0 && souhlasimVyplneno == true){
+				//formulář je vyplněn a necháme ho odeslat
+			} 
+			else {
+			//zrušíme odeslání formulaře, aby nedošlo k reloadu stránky
+			udalost.preventDefault(); // odeslání proběhne až na základě podmínky, že validace proběhla úspěšně (je všechno správně vyplněno)
+			alert("Formulář není zcela vyplněn!");
+			}
+		});
+
+		pohlavi.addEventListener("change", (udalost) => { //zaznamená změnu v inputu a odešle se ve chvíli kdy je ztracen focus (například odklikneme o okýnka jméno)
+			alert (`Vybrané  pohlaví: ${pohlavi.value}`);
+		});
+
+		jmeno.addEventListener("input", (udalost) => { //kontroluje například písmenko po písmenku a je možná průběžná validace
+			console.log(`${jmeno.value}`);
+		});
+	</script>
+	
+</body>
+</html>

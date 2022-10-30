@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script> //časovače jednorázové a opakované	
+		function pozdravMe()
+		{
+			alert("Ahoj!");
+		}
+
+		//vytvoření časovače
+		setTimeout(pozdravMe, 3000); //bez kulatých závorek, chceme jí jen zavolat, za čátkou se píše za kolik milisekund se má příkaz provést 3000 jsou tedy 3s
+
+		//výpis do konzole kolik je hodin
+		function vypisKolikJeHodin() //fce která vytvoří formát času, ale bez opakování
+			{
+				const cas = new Date();
+				console.log(`${cas.getHours()}:${cas.getMinutes()}:${cas.getSeconds()}`);
+			}
+		
+
+			//vytvoření opakovaného časovače
+			const casovac = setInterval(vypisKolikJeHodin,1000);
+
+			function ukoncitCasovac()
+			{
+				clearInterval(casovac); //ukončí opakující se časovač
+			}
+
+			setTimeout(ukoncitCasovac, 10000);
+
+
+	</script>
+</body>
+</html>

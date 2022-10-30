@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Product{
+			nazev;
+			cena;
+
+			constructor(nazev, cena)
+			{
+				this.nazev = nazev;
+				this.cena = cena;
+			}
+		}
+
+		class televize extends Product //tato třída podědí proměnné rodičovské třídy a bude vyžadovat její konstruktor
+		{
+			uhlopricka; 
+			rozliseni;
+
+			constructor(nazev, cena, uhlopricka, rozliseni) //pokud vytvořím constructor v dítěti, tak musím zopakovat zavolání construktoru rodiče
+			{
+				super(nazev, cena); //tzv. super constructor zavolá construktor rodiče
+				this.uhlopricka = uhlopricka;
+				this.rozliseni = rozliseni;
+			}
+		}
+
+		const telka = new televize("Samsung", 9990, '42"', "4k")
+		console.log(telka);
+	</script>
+</body>
+</html>

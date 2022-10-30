@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button id="test1" >Test1</button>
+	<button class="test2">Test2</button>
+
+	<ul>
+		<li>Lorem, ipsum dolor.</li>
+		<li>Temporibus, numquam quia.</li>
+		<li>Eos, ex tempora!</li>
+		<li>Itaque, corrupti repellendus!</li>
+		<li>Reprehenderit, assumenda beatae!</li>
+	</ul>
+	
+	<script>
+		const tlacitko1 = document.getElementById("test1"); //v JS musím vytvořit proměnou, kterou si pomocí fce getElementBy... vytáhnu to danné tlačítko
+		console.log(tlacitko1);
+		tlacitko1.style.color = "red";
+
+		const tlacitko2 = document.querySelector(".test2"); // v tomto případě se se to zapisuje jako v CSS, kdy class se volá s tečkou
+		tlacitko2.style.color = "white";
+
+		const polozky = document.querySelectorAll("li"); //vybere všechny "li" a prochází se to cyklem for je to něco jako pole
+		//polozky.style.text-color = "red"; - tímto způsobem to nefunguje
+
+		for(const polozka of polozky){
+			polozka.style.color = "blue";
+		}
+	</script>
+</body>
+</html>

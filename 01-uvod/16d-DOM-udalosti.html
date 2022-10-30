@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="neklikej">Neklikat na něj!</button>
+	<script>
+		document.addEventListener("mousemove", (udalost) => //události "mousemove" atd. jsou k najití na netu na w3schools.com
+															//tady mi to vytvoří udalost "udalost, na kteoru se mohu odkazovat"
+			{
+				console.log("hejbu myší")
+				console.log(`pozice: x: ${udalost.clientX}, y: ${udalost.clientY}`) //clientX a Y je opět z tý dokumentace na stránkách w3school
+			}
+		);
+
+		document.addEventListener("keydown", (udalost) => {
+			console.log(`stiskl jsem klávesu ${udalost.key}`);
+		});
+
+		const tlacitko = document.getElementById("neklikej");
+		tlacitko.addEventListener("click",(udalost) => { // "click" je zase událost při který to reaguje
+			alert("Neklikat!")
+		})
+	</script>
+</body>
+</html>

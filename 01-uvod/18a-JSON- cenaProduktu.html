@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	Název Produktu: <input type="text" id="nazev">
+	<button id="kolikStoji">Kolik to stojí?</button>
+
+	<script>
+		const nazev = document.getElementById("nazev");
+		const kolikStoji = document.getElementById("kolikStoji");
+
+		kolikStoji.addEventListener("click", (udalost) => {
+			const nazevProduktu = nazev.value;
+
+			const ajax = new XMLHttpRequest();
+			ajax.open("GET", "18a-JSON-cenaProduktu.php?nazevProduktu=" + encodeURIComponent(nazevProduktu)); //tato fce nám doplní a decoduje do URL vyplněný název produktu, tak aby se nám odeslala do phpčka
+			ajax.addEventListener("readystatechange", (udalost) =>{
+				if(ajax.readyState == 4){
+					const odpoved = ajax.responseText;
+					const produkt = JSON.parse(odpoved);
+					console.log(produkt);
+					if (produkt == false){
+						alert("Produkt nebyl nalezen");
+					} else {
+						alert(`Cena produktu je ${produkt.cena}`);
+					};
+				}
+			});
+			ajax.send();
+		});
+	</script>
+</body>
+</html>

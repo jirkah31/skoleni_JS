@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+</head>
+<body>
+
+		C: <input type="number" name="C" id="C">
+	
+		F: <input type="number" name="F" id="F">
+
+
+	<script>
+		
+		const C = document.getElementById("C");
+		const F = document.getElementById("F");
+
+		C.addEventListener("input", (udalost) => {
+			F.value = +C.value * 1.8 + 32; //pozor z inputu se nám vrací string, takže to je nutné převést na číslo, stačí napsat "+" před ten výraz
+			
+		});
+
+		F.addEventListener("input", (udalost) => {
+			C.value = (+F.value - 32)/1.8;
+			
+		});
+	</script>
+</body>
+</html>

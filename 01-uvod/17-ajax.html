@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button id="kdyJsouVelikonoce">Kdy jsou letos Velikonoce?</button>
+	<script>
+		const tlacitko = document.getElementById("kdyJsouVelikonoce");
+
+		tlacitko.addEventListener("click", (udalost) =>{
+		
+
+			//vytvoříme ajaxový požadavek (objekt)
+			const ajax = new XMLHttpRequest();
+
+			ajax.open("GET", "17a-ajax-velikonoce.php"); //fce, kterou řeknemes jakou url, jakou metodou chceme komunikovat
+
+			//přidáme posluchače na událost že se změnil stav našeho požadavku
+			ajax.addEventListener("readystatechange", (udalost) => {
+				//alert(`Změna požadavku. Stav ${ajax.readyState}`);
+
+				if(ajax.readyState == 4){
+					const odpoved = ajax.responseText;
+					alert (`Velikonoce jsou: ${odpoved}`);
+				}
+			});
+
+			//pořadavek odešleme
+			ajax.send();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<button>
+		Zjisti seznam uživatelů
+	</button>
+
+	<script>
+		const tlacitko = document.querySelector("button");
+
+		tlacitko.addEventListener("click", (udalost) => {
+			alert("Jdu zjistit uživatele ze serveru");
+
+			const ajax = new XMLHttpRequest();
+
+			ajax.open("GET", "https://jsonplaceholder.typicode.com/users"); //link je ze stránek JSON placeholders, kde poskytujou free REST API databáze např uživatelů
+
+			ajax.addEventListener("readystatechange", (udalost) => {
+				if (ajax.readyState == 4) {
+					const odpoved = ajax.responseText; // tad se nám do proměnné odpoved uloží výsledek, co nám přijde zpátky (je to string)
+					const uzivatele = JSON.parse(odpoved); //fce převede string odpoved na uzivatele (POLE)
+					console.log(uzivatele);
+
+					for (const uzivatel of uzivatele){
+						console.log(uzivatel.name); //pokud chceme něco z podseznamu, tak je vždy napojené další tečkou
+						
+					}
+				}
+			});
+			ajax.send();
+		});
+	</script>
+</body>
+
+</html>

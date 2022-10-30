@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.obal {
+			display: grid;
+			grid-template-areas: "obsah";
+			width: 200px;
+		}
+
+		.obal input {
+			grid-area: obal;
+		}
+
+		.obal img {
+			grid-area: obal;
+			justify-self: right;
+			align-self: center;
+			margin-right: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="obal">
+		<input type="password" name="" id="heslo">
+		<img src="https://cdn1.iconfinder.com/data/icons/essentials-pack/96/hidden_invisible_hide_eye_private-128.png"
+			alt="" id="zobrazit" width="20px
+	">
+	</div>
+
+	<script>
+		const heslo = document.getElementById("heslo");
+		const zobrazit = document.getElementById("zobrazit");
+
+		zobrazit.addEventListener("mousedown", (udalost) => {
+			heslo.type = "text"; //změní atribut type na text, aby se zobrazovalo heslo
+			zobrazit.src = "https://cdn1.iconfinder.com/data/icons/essentials-pack/96/show_view_eye_visible_on-256.png";
+		})
+		zobrazit.addEventListener("mouseup", (udalost) => {
+			heslo.type = "password"; //změní atribut type na password, aby se heslo zase skrylo
+			zobrazit.src = "https://cdn1.iconfinder.com/data/icons/essentials-pack/96/hidden_invisible_hide_eye_private-128.png";
+		})
+
+	</script>
+</body>
+
+</html>

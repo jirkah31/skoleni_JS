@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#znak {
+			position: relative;
+			top: -5px;
+			left: 10px;
+		}
+
+		#znak i {
+			
+			display: flex;
+			height: 20px;
+			width: 20px;
+			border: 1px solid black;
+			align-items: center;
+			justify-content: center;
+			border-radius: 5px;
+			background-color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="password" name="" id="heslo">
+	<div id="znak"></div>
+
+	<script>
+		const heslo = document.getElementById("heslo");
+		const znak = document.getElementById("znak");
+
+		heslo.addEventListener("keydown", (udalost) => { //odposlechne jaká klávesa byla stisknuta
+			znak.innerHTML = `<i>${udalost.key}</i>`; //zapíše písmenko do události
+			setTimeout(() => {
+				znak.innerText = "";
+			}, 300);
+		});
+	</script>
+</body>
+
+</html>

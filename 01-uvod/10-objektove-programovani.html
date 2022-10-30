@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//vytvoření classy
+		class Product 
+		{	//proměnné Productu
+			nazev;
+			cena;
+			popis;
+			skladem;
+		}
+
+		const pivo = new Product(); //vytvoření objektu
+		pivo.nazev = "Gambrinus";//přiřazení hodnoty k proměnné
+		pivo.cena = 11.9;
+
+		console.log(pivo);
+
+		console.log(`Cena piva je ${pivo.cena}`);
+
+		const televize = new Product();
+		televize.nazev = "Samsung";
+		televize.cena = 10900;
+
+		
+
+		console.log(televize);
+	</script>
+</body>
+</html>

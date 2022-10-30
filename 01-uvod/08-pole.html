@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const mesice = ["leden", "únor", "březen"];
+		console.log(mesice);
+
+		const druhyMesic = mesice[1];
+		console.log(`Druhý měsíc je: ${druhyMesic}`);
+
+		//přidání položek fce: push
+		mesice.push("duben", "květen");
+		console.log(mesice);
+
+		//odebrání položek fce: splice(od které to chceme smazat, kolik jich chceme smazat)
+		mesice.splice(2, 1);
+		console.log(mesice);
+
+		//procházení pole
+		for (let index = 0; index < mesice.length; index++){
+			const mesic = mesice[index];
+			console.log(`${index+1}. měsíc je ${mesic}`);
+		}
+
+		//procházení pomocí for/of
+		//v PHP foreach ($mesice as $mesic)
+		for(const mesic of mesice){ //for (proměnná kam se to má uložit "of" název pole které chceme projít)
+			console.log(mesic);
+		}
+
+		//foreach ($mesice as $index => $mesic) - php
+		for(const[index, mesic] of Object.entries(mesice)){ //v JS to musíme prohnat objektovou fcí Object.entries, kde se nám to uloží do proměnných index a mesic
+			console.log(`${+index+1}. měsíc je ${mesic}`); //vrací to string, tak ho převedeme plusem na číslo
+		}
+	</script>
+</body>
+</html>

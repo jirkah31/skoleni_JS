@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		class ChybaMaloPenez extends Error { //speciální rozšíření pro chyby Errors
+
+		}
+
+		class ChybaSpatnaCastka extends Error {
+
+		}
+
+		class Kasa {
+			#pocetPenez; //pokud je proměnná uvedeená s #, tak je vedená jako private/soukromá a můžeme s ní manipulovat jen uvnitř té classy
+
+			constructor() {
+				this.#pocetPenez = 0;
+			}
+
+			vloz(castka) {
+				this.#pocetPenez += castka;
+			}
+
+			vyber(castka) {
+				if (castka > this.#pocetPenez) {
+					const chyba = new ChybaMaloPenez(); //zavoláme třídu s konkrétní chybovou hláškou
+					throw chyba; // vyhodí nám to chybu
+				}
+				else if (castka <= 0) {
+					const chyba = new ChybaSpatnaCastka();
+					throw chyba;
+				}
+				else {
+					this.#pocetPenez -= castka;
+				}
+			}
+		}
+
+		const pokladna = new Kasa();
+		console.log(pokladna);
+
+		pokladna.vloz(100); //abych s tím mohl pracovat musím to zavolat přes fci, která je uvnitř classy
+		console.log(pokladna);
+		try //pokud někde může nastat nějaká chyba, kterou si definujeme nahoře, tak to obalíme pomocí try
+		{
+			pokladna.vyber(-50);
+			pokladna.vyber(60);
+		}
+		catch (chyba) {
+			alert(`Nepodařilo se vybrat`);
+			if (chyba instanceof ChybaMaloPenez) {
+				alert("V kase není dost penět!")
+			}
+			else if (chyba instanceof ChybaSpatnaCastka) {
+				alert("Vybíráme špatnou částku!")
+			}
+		}
+		console.log(pokladna);
+
+	</script>
+</body>
+
+</html>

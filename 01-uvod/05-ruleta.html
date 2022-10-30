@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const cislo = Math.floor(Math.random() * 5); //fce v JS na generování náhodného čísla, generuje pouze od 0 do 1 s tím, že jednička je vynechána, takže to 0.999, proto tomu musíme přizpůsobit a vynásobit to *5¨
+		//Math.floor ořízne číslo od desetiného čísla, JS má fce rozdělené např do Math (je to něco jako objekty, tak toto jsou matematické)
+		console.log(cislo);
+
+		const tip = prompt("Hádej sudé, licé nebo nula!");
+
+		let padnulo;
+		if (cislo == 0)
+		{
+			padnulo = "nula";
+		}
+		else if (cislo%2 == 0) {
+			padnulo = "sudé";
+		} else {
+			padnulo = "liché";
+		}
+
+		let vysledek;
+		if (tip == padnulo){
+			vysledek = "Správně!"
+		} else {
+			vysledek = "Špatně!"
+		}
+
+		alert(`${vysledek} - padnulo ${padnulo}`);
+	</script>
+</body>
+</html>

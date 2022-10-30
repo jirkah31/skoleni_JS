@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let soucet = 0;
+		let cislo = prompt("Zadej číslo pro součet:" );
+		while(cislo != 0){
+			soucet += +cislo;
+			cislo--;
+		}
+		alert(`součet je: ${soucet}`);
+
+//převod na velká písmena
+		const mesto = "praha";
+		const velkePismo = mesto.toUpperCase(); //v JS se nepoužívá jako v php -> ale zde se odkazuje tečkami
+		alert(velkePismo);
+
+//zaokrouhlení na jedno desetiné místo
+		const cisloZaokrouhleni = 3.1456;
+		const zaokrouhleno = Math.round(cisloZaokrouhleni*10)/10; //JS zaokrouhluje jen na celá čísla
+		alert(`zaokrouhleno na : ${zaokrouhleno}`);
+
+//vlastní fce stejně jako v php
+		function obvodKruhu(polomer) //napíšu function a název fce a co bere fce za parametry
+		{
+			const vysledek = polomer * 2 * Math.PI;
+			return vysledek;
+		}
+
+		const obvodPolomeru5 = obvodKruhu(5);
+		alert(`Obvod kruhu s poloměrem 5 je ${obvodPolomeru5}`);
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="hodiny"></h1>
+
+	<script>
+		const hodiny = document.getElementById("hodiny"); //vytáhnu si z html hodiny h1
+
+		setInterval(() => {
+			const cas = new Date(); //zavolám si čas
+			const hodin = cas.getHours().toString().padStart(2,"0"); //z času vytáhnu hodiny, musím převést na string a padStart doplní nulu
+			const minuty = cas.getMinutes( ).toString().padStart(2,"0"); //getHours vrací formát čísla a padStart bere jen stringy, tak je nutné to převést
+			const sekundy = cas.getSeconds().toString().padStart(2,"0");
+			hodiny.innerText = `${hodin}:${minuty}:${sekundy}`;
+		},1000);
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Kasa
+		{
+			#pocetPenez; //pokud je proměnná uvedeená s #, tak je vedená jako private/soukromá a můžeme s ní manipulovat jen uvnitř té classy
+
+			constructor()
+			{
+				this.#pocetPenez = 0;
+			}
+
+			vloz(castka)
+			{
+				this.#pocetPenez += castka;
+			}
+
+			vyber(castka)
+			{
+				if(castka > this.#pocetPenez)
+				{
+					console.log("V pokladně není dostatek peněz");
+				}
+				else
+				{
+					this.#pocetPenez -= castka;
+				}
+			}
+		}
+
+		const pokladna = new Kasa();
+		console.log(pokladna);
+
+		pokladna.vloz(100); //abych s tím mohl pracovat musím to zavolat přes fci, která je uvnitř classy
+		console.log(pokladna);
+		pokladna.vyber(50);
+		pokladna.vyber(60);
+		console.log(pokladna);
+
+	</script>
+</body>
+</html>

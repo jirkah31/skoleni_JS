@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<ol reversed mujAtribut="zkouska"> 
+		<li>Lorem.</li>
+		<li>Commodi!</li>
+		<li>Fugit.</li>
+		<li>Ab?</li>
+		<li>Eos?</li>
+	</ol>
+
+	<img src="https://cdn2.iconfinder.com/data/icons/social-flat-buttons-3/512/zynga-256.png" alt="" height="250">
+
+	<script>
+		const seznam = document.querySelector("ol");
+		const obrazek = document.querySelector("img");
+
+		/* seznam.style.color = "red";
+		seznam.style.fontSize = 100; */
+
+		seznam.style = "color: red";
+		seznam.style = "font-size: 50px"; //při zadání stylu takto, se provede pouze poslední atribut, protože přemaže všechny předchozí
+		
+		seznam.start = 27;
+
+		console.log(seznam.getAttribute("mujAtribut")); //vypíše hodnotu mého atribudu pomocí fce getAttrubute
+		seznam.setAttribute("mujAtribute", "novaHodnotaAtributu"); //novou hodnotu oatrbutu mohu ověřit přímov consoli pomocí fce getAttribute
+		console.log(seznam.hasAttribute("mujAtribut")); //ověření existence atributu, do konsole vypíše true
+
+	</script>
+</body>
+</html>

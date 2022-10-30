@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		class Clovek 
+		{
+			jmeno;
+			static pocetLidiNaSvete = 0;
+
+			constructor(jmeno) 
+			{
+				this.jmeno = jmeno;
+				Clovek.pocetLidiNaSvete++;
+			}
+
+			static kolikJeLidiNaSvete()
+			{
+				return Clovek.pocetLidiNaSvete; //musím dycky označit z jaké to je classy
+			}
+		}
+
+		const adam = new Clovek("Adam");
+		const eva = new Clovek("Eva");
+		console.log(`Počet lidí na světě ${Clovek.pocetLidiNaSvete}`); //třída Clovek má v sobě uloženo kolik je lidí na svvěte
+		console.log(`Počet lidí na světě ${Clovek.kolikJeLidiNaSvete()}`);
+	</script>
+</body>
+
+</html>

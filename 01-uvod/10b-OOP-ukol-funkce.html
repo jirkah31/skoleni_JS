@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Product{
+			nazev;
+			cena; //cena zeb dph
+			dph; //sazba % DPH
+
+			//založení funkce uvnitř objekut
+			cenaSDPH()
+			{
+				return this.cena * (1 + this.dph/100); //this určuje, že se to vezme z toho konkrétního objektu
+			}
+		}
+
+		const telefon = new Product();
+		telefon.nazev = "iPhone";
+		telefon.cena = 10000;
+		telefon.dph = 21;
+
+		console.log(`Cena telefonu s DPH je ${telefon.cenaSDPH()}`);
+	</script>
+</body>
+</html>

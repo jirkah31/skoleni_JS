@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		"use strict"; //spustí striktní režim JS, pokud chceme aby nás JS kontroloval (ale je přísnej :-))
+
+		var jmeno = "Petr"; //vytvoření proměnní jmeno, na var se nevztahuje pravidlo se scopem jako na proměnou typu let
+		alert(jmeno);
+
+		var prijmeni; //taky vytvoří proměnou, ale hodnotu uložím až dole
+		prijmeni = "Pavel";   
+
+		let jmeno1;
+		jmeno1 = "Novák"; //platnost uvnitř bloku/scopu závorek
+
+		const vek = 20; //definice proměnné, která se nemůže změnit, je to prostě konstanta
+
+		console.log(`Moje přijmení je: ${jmeno1}`); // vypasání proměnné jde jednom do temlate stringu, který se dělá obrácenýma apostrofama altr+ý a proměná se uvede viz console.log(), v template striungu jsou provádět i matematické operace
+
+		let stoleti; //pokud nepřiřadím hodnotu, tak mi to vrátí "undefined", tedy proměnná není definována
+
+		//fce prompt umožňuje vyskakovací okno, kde může uživatel zadat hodnotu, kterou si můžeme uložit jako proměnou
+		let mujVek = prompt(`Zadejte svůj věk: `);
+		console.log(mujVek);
+	</script>
+</body>
+</html>

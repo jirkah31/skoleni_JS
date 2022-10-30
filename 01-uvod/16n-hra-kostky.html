@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Document</title>
+	<style>
+		.fa-solid {
+			font-size: 200px;
+		}
+
+		.vyhra {
+			color: green;
+		}
+
+		.prohra {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h4>Stiskem myší kostky spustíte nebo zastavíte.</h4>
+
+	<i class="fa-solid fa-dice-one" id="kostka1"></i>
+	<i class="fa-solid fa-dice-one" id="kostka2"></i>
+
+	<h1></h1>
+
+	<script>
+		const kostka1 = document.getElementById("kostka1");
+		const kostka2 = document.getElementById("kostka2");
+
+	
+
+		let strana1 = 0;
+		let strana2 = 0;
+		let stopStart = null;
+
+		const strany = { //na základě této struktury budu měnit classu a podle toho se mi změní obrázek
+			0: "fa-solid fa-dice-one",
+			1: "fa-solid fa-dice-two",
+			2: "fa-solid fa-dice-three",
+			3: "fa-solid fa-dice-four",
+			4: "fa-solid fa-dice-five",
+			5: "fa-solid fa-dice-six",
+		};
+
+		addEventListener("click", (udalost) => {
+			if (stopStart == null) 
+			{
+				stopStart1 = setInterval(() => 
+				{
+					//fce na random číslo
+					strana1 = Math.floor(Math.random() * 6);
+					strana2 = Math.floor(Math.random() * 6);
+
+					kostka1.className = strany[strana1]; //  přepíšu klassName a tím změním zdroj z font awesome
+					kostka2.className = strany[strana2];
+				}, 1000);
+
+				stopStart = 1;
+			}
+			else 
+			{
+				clearInterval(stopStart1);
+				// console.log(`hodnota 1 je ${strana1}`);
+				// console.log(`hodnota 2 je ${strana2}`);
+
+				//doplnit hodnoty a vypodmínkovat výhru nebo prohru
+				if (strana1 == strana2) {
+					// console.log(`výhra`);
+					const nadpis = document.querySelector("h1");
+					nadpis.innerHTML = "<h1 class='vyhra'>Výhra!!!<i class='fa-regular fa-thumbs-up'></i></h1>";
+				} else {
+					const nadpis = document.querySelector("h1");
+					nadpis.innerHTML = "<h1 class='prohra'>Prohra!!!<i class='fa-regular fa-thumbs-down'></i></h1>";
+				}
+				stopStart = null;
+			}
+		});
+
+
+
+	</script>
+</body>
+
+</html>

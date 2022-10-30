@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		const lidi = [
+			["Petr", "muž"],
+			["Nikola", "žena"],
+			["Ivan", "muž"],
+			["Franta", "muž"],
+			["Lucka", "žena"],
+		];
+		
+		console.log(lidi);
+
+		const holky = [];
+
+		for (const clovek of lidi) { //člověk je pole složené z jména [0] a pohlaví [1] (na pozici)
+			if (clovek[1] == "žena") { //ptáme se jestli v poli clovek na pozici [1] je "žena"
+				holky.push(clovek[0]); //clovek[0] odkazuji se na první položku ze seznamu
+			}
+		}
+		console.log(holky);
+	</script>
+</body>
+
+</html>

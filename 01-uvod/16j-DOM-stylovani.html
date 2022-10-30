@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		h1 {
+			transition: all 0.5s ease-in;
+		}
+
+		h1.velky {
+			font-size: 80px;
+			color: green;
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+	<h1>Nadpis</h1>
+
+	<i id="baterie" class="fa-solid fa-battery-empty"></i>
+	<button id="nabito">Nabito</button>
+	<button id="vybito">Vybito</button>
+
+	<script>
+		const nadpis = document.querySelector("h1");
+
+		// nadpis.style.color = "red"; //tímto stylem vypisování stylu jednoho po druhém mohu kdykoliv v průběhu měnit jen jednu z uvedených vlastností
+		// nadpis.style.fontSize = "70px";
+
+		nadpis.addEventListener("click", (udalost) => {
+			//nastavení třídy pomocí className = jako atribut class (kompletní string)
+			//nadpis.className = "velky"; - tímto stylem je to vhodné pro jednodušší nastylování
+
+			//VHODNĚJŠÍ ZPŮSOB POMOCÍ  classList
+			//nadpis.classList.add("velky"); // v consoli je vidět, že to tam doplní tu classu do toho atribudu a budou tam obě ty classy v jednom atributu
+			nadpis.classList.toggle("velky"); //.add přidává classu, remove jí odebere a toggle je přepíná
+		})
+
+		const nabito = document.querySelector("#nabito");
+		const vybito = document.querySelector("#vybito");
+		const baterie = document.querySelector("#baterie");
+
+		nabito.addEventListener("click", (udalost => {
+			baterie.className = "fa-solid fa-battery-full";
+		}))//tady se hodí className, protože potřebujeme přepsa název celé classy a blbě by se přepisovala jen jedna část
+		vybito.addEventListener("click", (udalost => {
+			baterie.className = "fa-solid fa-battery-empty";
+		}))
+	</script>
+</body>
+
+</html>

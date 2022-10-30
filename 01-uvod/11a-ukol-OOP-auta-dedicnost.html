@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		class Auto {
+			znacka;
+			rokVyroby;
+
+			constructor(znacka, rokVyroby) {
+				this.znacka = znacka;
+				this.rokVyroby = rokVyroby;
+			}
+
+			stariVozu() {
+				return new Date().getFullYear() - this.rokVyroby;
+			}
+		}
+
+		class SpalovaciMotor extends Auto {
+			palivo;
+
+			constructor(znacka, rokVyroby, palivo) {
+				super(znacka, rokVyroby);
+				this.palivo = palivo;
+			}
+		}
+
+		class ElektroMotor extends Auto {
+			kapacitaBaterie;
+
+			constructor(znacka, rokVyroby, kapacitaBaterie) {
+				super(znacka, rokVyroby);
+				this.kapacitaBaterie = kapacitaBaterie;
+			}
+		}
+
+		const auto1 = new ElektroMotor("Tesla", 2020, 80);
+
+		const auto2 = new SpalovaciMotor("Range Rover", 2019, "diesel");
+
+		const auta = [auto1, auto2];
+
+		console.log(auta);
+
+		for (const auto of auta) //projde pole
+		{
+			console.log(`Značka ${auto.znacka}, rok výroby ${auto.rokVyroby} a stáří vozu je ${auto.stariVozu()}`);
+			if (auto instanceof ElektroMotor) { //instanceof souží k tomu abychom mohli vybrat podmínkou z rozdílných class
+				console.log(`Kapacita baterie ${auto.kapacitaBaterie}`);
+			} else if (auto instanceof SpalovaciMotor) {
+				console.log(`Palivo je ${auto.palivo}`);
+			}
+
+
+		}
+
+	</script>
+</body>
+
+</html>

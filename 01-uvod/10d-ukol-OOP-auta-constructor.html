@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		class Auto {
+			znacka;
+			rokVyroby;
+
+			constructor(znacka, rokVyroby)
+			{
+				this.znacka = znacka;
+				this.rokVyroby = rokVyroby;
+			}
+
+			stariVozu()
+			{
+				return new Date().getFullYear() - this.rokVyroby;
+			}
+		}
+
+		const auto1 = new Auto("Tesla", 2020);
+		
+
+		const auto2 = new Auto("Range Rover", 2019);
+	
+
+		const auta = [auto1, auto2];
+
+		console.log(auta);
+
+		for(const auto of auta) //projde pole
+		{
+			console.log(`Značka ${auto.znacka}, rok výroby ${auto.rokVyroby} a stáří vozu je ${auto.stariVozu()}`);
+		}
+
+		year = new Date().getFullYear(); //fceDate() nám zjistí aktuální čas a fce getFullYear nám z toho vytáhne aktuální rok
+		console.log(year);
+
+	</script>
+</body>
+
+</html>
